@@ -16,14 +16,14 @@ public class UIHandler : MonoBehaviour
     public TextMeshProUGUI Date;
     public TextMeshProUGUI Time;
 
+    [Header("Currency Settings")]
+    public TextMeshProUGUI UICurrency;
+    public TextMeshProUGUI PCCurrency;
+
     private void OnEnable() 
     {
         TimeHandler.OnDateTimeChanged += UpdateDateTime;
-    }
-
-    private void OnDisable() 
-    {
-        TimeHandler.OnDateTimeChanged -= UpdateDateTime;
+        CurrencyHandler.OnDoletasChanged += UpdateCurrencyText;
     }
     
     private void UpdateDateTime(DateTime dateTime)
@@ -52,6 +52,13 @@ public class UIHandler : MonoBehaviour
             int randomInt = Random.Range(0, 10000);
             Debug.Log(randomInt);
         }
+    }
+
+    private void UpdateCurrencyText(string newDoletasValue)
+    {
+        // Atualiza o texto Currency com o novo valor de doletas
+        UICurrency.text = newDoletasValue;
+        PCCurrency.text = newDoletasValue;
     }
 
     public void OpenCallendar() {
