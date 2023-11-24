@@ -20,14 +20,21 @@ public class UIHandler : MonoBehaviour
     public TextMeshProUGUI UICurrency;
     public TextMeshProUGUI PCCurrency;
 
-    private void OnEnable() 
+    [Header("Currency Settings")]
+    public Image UIExBar;
+    public Image PCExBar;
+
+
+    private void Start() 
     {
         TimeHandler.OnDateTimeChanged += UpdateDateTime;
         CurrencyHandler.OnDoletasChanged += UpdateCurrencyText;
+        ExhaustionHandler.OnExhaustionChanged += UpdateExhaustionFill;
     }
     
     private void UpdateDateTime(DateTime dateTime)
     {
+        Debug.Log("REPETIU!");
         if (dateTime.Date > 9) {
             Date.text = dateTime.Date.ToString();
         } else {
@@ -47,6 +54,16 @@ public class UIHandler : MonoBehaviour
             }
         }
 
+        // Updating the Exhaustion Bar
+        if (TimeHandler.is_recovering == false)
+        {
+            ExhaustionHandler.DecreaseFillAmount();
+        }
+        else if (TimeHandler.is_recovering == true)
+        {
+            ExhaustionHandler.IncreaseFillAmount();
+        }
+
         // Select a Random Event
         if (dateTime.IsNewDay()) {
             int randomInt = Random.Range(0, 10000);
@@ -59,6 +76,23 @@ public class UIHandler : MonoBehaviour
         // Atualiza o texto Currency com o novo valor de doletas
         UICurrency.text = newDoletasValue;
         PCCurrency.text = newDoletasValue;
+    }
+
+    private void UpdateExhaustionFill(float newFillValue) {
+        RectTransform uiExBarRect = UIExBar.GetComponent<RectTransform>();
+        RectTransform pcExBarRect = PCExBar.GetComponent<RectTransform>();
+
+        // Get the current anchorMax values
+        Vector2 uiExBarAnchorMax = uiExBarRect.anchorMax;
+        Vector2 pcExBarAnchorMax = pcExBarRect.anchorMax;
+
+        // Change only the x-coordinate
+        uiExBarAnchorMax.x = newFillValue;
+        pcExBarAnchorMax.x = newFillValue;
+
+        // Set the modified anchorMax values back to the RectTransforms
+        uiExBarRect.anchorMax = uiExBarAnchorMax;
+        pcExBarRect.anchorMax = pcExBarAnchorMax;
     }
 
     public void OpenCallendar() {

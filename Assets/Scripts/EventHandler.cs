@@ -71,6 +71,7 @@ public class EventHandler : MonoBehaviour
 
         // Variables Control
         timeHandler.TimeBetweenTicks = 0.2f;
+        timeHandler.InBed();
     }
 
     public void CloseBed() {
@@ -85,6 +86,7 @@ public class EventHandler : MonoBehaviour
 
         // Variables Control
         timeHandler.TimeBetweenTicks = 2.0f;
+        timeHandler.OutBed();
     }
 
     // Abre a Tela do Computador e Desativa os colisores dos Moveis e da UI

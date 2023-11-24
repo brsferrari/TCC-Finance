@@ -18,12 +18,14 @@ namespace DPUtils.Systems.DateTime
         [Range(0, 6)]
         public int minutes;
 
+        public static bool is_recovering = false;
+        
         private DateTime DateTime;
 
         // VERY IMPORTANT FOR GAME DESIGN
         [Header("Tick Settings")]
         public int TickMinutesIncreased = 10;
-        public float TimeBetweenTicks  = 1;
+        public float TimeBetweenTicks  = 2;
         private float currentTimeBetweenTicks = 0;
 
         public static UnityAction<DateTime> OnDateTimeChanged;
@@ -57,6 +59,14 @@ namespace DPUtils.Systems.DateTime
             DateTime.AdvanceMinutes(TickMinutesIncreased);
 
             OnDateTimeChanged?.Invoke(DateTime);
+        }
+
+        public void InBed() {
+            is_recovering = true;
+        }
+
+        public void OutBed() {
+            is_recovering = false;
         }
 
     }
