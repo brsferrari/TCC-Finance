@@ -6,7 +6,7 @@ public class CurrencyHandler : MonoBehaviour
 {
     // Objetos para modificação
     [Header("Objetos para Alteração da Moeda")]
-    public static float IncreaseByClick = 00.0001f;
+    public static float IncreaseByClick = 00.1000f;
     public static float IncreaseCurrencyExtra = 00.0000f; 
     // Objetos privados
     private static float doletas = 00.0000f;

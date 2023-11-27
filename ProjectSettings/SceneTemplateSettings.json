@@ -10,21 +10,7 @@
         },
         {
             "userAdded": false,
-            "type": "UnityEditor.Animations.AnimatorController",
-            "ignore": false,
-            "defaultInstantiationMode": 0,
-            "supportsModification": true
-        },
-        {
-            "userAdded": false,
             "type": "UnityEngine.AnimatorOverrideController",
-            "ignore": false,
-            "defaultInstantiationMode": 0,
-            "supportsModification": true
-        },
-        {
-            "userAdded": false,
-            "type": "UnityEditor.Audio.AudioMixerController",
             "ignore": false,
             "defaultInstantiationMode": 0,
             "supportsModification": true
@@ -52,13 +38,6 @@
         },
         {
             "userAdded": false,
-            "type": "UnityEditor.LightingDataAsset",
-            "ignore": false,
-            "defaultInstantiationMode": 0,
-            "supportsModification": false
-        },
-        {
-            "userAdded": false,
             "type": "UnityEngine.LightingSettings",
             "ignore": false,
             "defaultInstantiationMode": 0,
@@ -69,13 +48,6 @@
             "type": "UnityEngine.Material",
             "ignore": false,
             "defaultInstantiationMode": 0,
-            "supportsModification": true
-        },
-        {
-            "userAdded": false,
-            "type": "UnityEditor.MonoScript",
-            "ignore": true,
-            "defaultInstantiationMode": 1,
             "supportsModification": true
         },
         {
@@ -112,13 +84,6 @@
             "ignore": false,
             "defaultInstantiationMode": 0,
             "supportsModification": true
-        },
-        {
-            "userAdded": false,
-            "type": "UnityEditor.SceneAsset",
-            "ignore": false,
-            "defaultInstantiationMode": 0,
-            "supportsModification": false
         },
         {
             "userAdded": false,

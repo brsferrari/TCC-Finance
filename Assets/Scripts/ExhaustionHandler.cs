@@ -19,10 +19,8 @@ public class ExhaustionHandler : MonoBehaviour
         if (!IsGameOver()) {
             if (!click) {
                 current_value -= fill_step;
-                Debug.Log(fill_step);
             } else {
                 current_value -= (fill_step/2);
-                Debug.Log(fill_step);
             }
         } else {
             GameOver();

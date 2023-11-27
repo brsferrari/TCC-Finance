@@ -26,14 +26,18 @@ public class EventHandler : MonoBehaviour
 
     void Start()
     {
-        //Começar Ligado
-        Moveis.SetActive(true);
-        UI.SetActive(true);
+        try {
+            //Começar Ligado
+            Moveis.SetActive(true);
+            UI.SetActive(true);
 
-        //Começar Desligado
-        Computer.SetActive(false);
-        Callendar.SetActive(false);
-        WorkScreen.SetActive(false);
+            //Começar Desligado
+            Computer.SetActive(false);
+            Callendar.SetActive(false);
+            WorkScreen.SetActive(false);
+        } catch {
+            Debug.Log("N temos!");
+        }
     }
 
 

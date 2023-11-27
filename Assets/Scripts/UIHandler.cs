@@ -24,6 +24,7 @@ public class UIHandler : MonoBehaviour
     public Image UIExBar;
     public Image PCExBar;
 
+    private int days_without_re = 1;
 
     private void Start() 
     {
@@ -34,7 +35,6 @@ public class UIHandler : MonoBehaviour
     
     private void UpdateDateTime(DateTime dateTime)
     {
-        Debug.Log("REPETIU!");
         if (dateTime.Date > 9) {
             Date.text = dateTime.Date.ToString();
         } else {
@@ -66,8 +66,21 @@ public class UIHandler : MonoBehaviour
 
         // Select a Random Event
         if (dateTime.IsNewDay()) {
-            int randomInt = Random.Range(0, 10000);
-            Debug.Log(randomInt);
+            TimeHandler.total_days += 1; 
+            days_without_re += 1;
+            int randomInt = 0;
+            // If is not first week, choose a random event
+            if (TimeHandler.total_days > 7 && days_without_re != 0 && days_without_re != 1) {
+                if (days_without_re >= 7) {
+                    randomInt = Random.Range(2, 8); // 66%
+                } else {
+                    randomInt = Random.Range(1, 50000); // 10%
+                }
+                if (EhPrimo(randomInt)) {
+                    days_without_re = 0;
+                    Debug.Log("RANDOM EVENT!");
+                }
+            }
         }
     }
 
@@ -99,5 +112,23 @@ public class UIHandler : MonoBehaviour
         Callendar.SetActive(true);
         UI.SetActive(false);
         Moveis.SetActive(false);
+    }
+
+    public bool EhPrimo(int numero)
+    {
+        if (numero <= 1)
+        {
+            return false;
+        }
+
+        for (int i = 2; i <= Mathf.Sqrt(numero); i++)
+        {
+            if (numero % i == 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

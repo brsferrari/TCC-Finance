@@ -15,10 +15,12 @@ namespace DPUtils.Systems.DateTime
         [Range(0, 24)]
         public int hour;
         
-        [Range(0, 6)]
+        [Range(0, 60)]
         public int minutes;
 
         public static bool is_recovering = false;
+
+        public static int total_days = 1;
         
         private DateTime DateTime;
 
