@@ -8315,16 +8315,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - Bem vindo ao Financial Clicker! O objetivo desse jogo eh chegar ao final do
+      mes com o dinheiro necessario para pagar suas contas como mostrado no canto
+      superior direito da tela.
+    - Nesse jogo voce ganha dinheiro trabalhando, e para isso vamos abrir sua area
+      de trabalho clicando no computador.
+    - Agora abra o aplicativo de trabalho contido na sua area de trabalho.
+    - A cada clique no botao voce ganha dinheiro!
+    - Mas lembre-se que trabalhar eh cansativo e a cada clique e a cada minuto sua
+      exaustao vai se consumindo!!
+    - Para investir o seu dinheiro para poder ganhar mais dinheiro voce precisa ir
+      para a loja. Feche seu aplicativo de trabalho.
+    - Agora clique no botao de investimentos.
+    - Aqui eh onde voce investe seu dinheiro em pecas de computados para gerar mais
+      dinheiro. Mas lembre-se de fazer uma reserva de emergencia para emergencias,
+      pois ao inicio de cada dia existe uma probabilidade de algo dar errado.
+    - Para recuperar sua exaustao basta clicar na cama.O tempo ira passar mais rapido
+      enquanto voce descansa.
+    - Esta pronto para jogar? Ou gostaria de repetir o tutorial?
   final: {fileID: 230089221}
   UIMoney: {fileID: 370723490}
   currency_text: {fileID: 1549304}
@@ -8376,6 +8384,7 @@ MonoBehaviour:
   ShopScreen: {fileID: 0}
   TimeAdvanceUI: {fileID: 0}
   TimeHandler: {fileID: 0}
+  CurrencyHandler: {fileID: 0}
   GetOutBedButton: {fileID: 0}
 --- !u!1 &867342892
 GameObject:

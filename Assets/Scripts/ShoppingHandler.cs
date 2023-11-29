@@ -17,10 +17,10 @@ public class ShoppingHandler : MonoBehaviour
     private int FonteItemCounter;
     private int RAMItemCounter;
 
-    private float[] GPUPrices = { 01.0000F, 05.0000F, 10.0000F, 100000.0000F };
-    private float[] CPUPrices = { 05.0000F, 10.0000F, 20.0000F, 100000.0000F };
-    private float[] FontePrices = { 10.0000F, 20.0000F, 40.0000F, 100000.0000F };
-    private float[] RAMPrices = { 20.0000F, 40.0000F, 80.0000F, 100000.0000F };
+    private float[] GPUPrices = { 1000.0000F, 2000.0000F, 4000.0000F, 100000000.0000F };
+    private float[] CPUPrices = { 500.0000F, 1000.0000F, 1500.0000F, 100000000.0000F };
+    private float[] RAMPrices = { 30.0000F, 60.0000F, 120.0000F, 100000000.0000F };
+    private float[] FontePrices = { 05.0000F, 10.0000F, 20.0000F, 100000000.0000F };
 
     // Start is called before the first frame update
     void Start()
@@ -86,7 +86,7 @@ public class ShoppingHandler : MonoBehaviour
     {
         if (CurrencyHandler.GetDoletasValue() >= GPUPrices[GPUItemCounter]) {
             CurrencyHandler.DeacreseCurrency(GPUPrices[GPUItemCounter]);
-            CurrencyHandler.IncreaseByClick *= 4;
+            CurrencyHandler.IncreaseByClick += 00.5400f;
             BuyItem(button);
             GPUItemCounter++;
 
@@ -100,7 +100,7 @@ public class ShoppingHandler : MonoBehaviour
     {
         if (CurrencyHandler.GetDoletasValue() >= CPUPrices[CPUItemCounter]) {
             CurrencyHandler.DeacreseCurrency(CPUPrices[CPUItemCounter]);
-            CurrencyHandler.IncreaseByClick *= 4;
+            CurrencyHandler.IncreaseByClick += 00.3800f;
             BuyItem(button);
             CPUItemCounter++;
 
@@ -114,7 +114,7 @@ public class ShoppingHandler : MonoBehaviour
     {
         if (CurrencyHandler.GetDoletasValue() >= FontePrices[FonteItemCounter]) {
             CurrencyHandler.DeacreseCurrency(FontePrices[FonteItemCounter]);
-            CurrencyHandler.IncreaseByClick *= 4;
+            CurrencyHandler.IncreaseByClick += 00.0400f;
             BuyItem(button);
             FonteItemCounter++;
 
@@ -128,7 +128,7 @@ public class ShoppingHandler : MonoBehaviour
     {
         if (CurrencyHandler.GetDoletasValue() >= RAMPrices[RAMItemCounter]) {
             CurrencyHandler.DeacreseCurrency(RAMPrices[RAMItemCounter]);
-            CurrencyHandler.IncreaseByClick *= 4;
+            CurrencyHandler.IncreaseByClick += 00.1600f;
             BuyItem(button);        
             RAMItemCounter++;
 

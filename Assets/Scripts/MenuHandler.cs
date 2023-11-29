@@ -7,6 +7,10 @@ public class MenuHandler : MonoBehaviour
         SceneManager.LoadScene("MainGame", LoadSceneMode.Single); 
     }
 
+    public void StartMenu() {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single); 
+    }
+
     public void Tutorial() {
         SceneManager.LoadScene("Tutorial", LoadSceneMode.Single); 
     }

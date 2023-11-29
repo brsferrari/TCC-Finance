@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExhaustionHandler : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class ExhaustionHandler : MonoBehaviour
             if (!click) {
                 current_value -= fill_step;
             } else {
-                current_value -= (fill_step/2);
+                current_value -= (fill_step/3);
             }
         } else {
             GameOver();
@@ -38,7 +39,7 @@ public class ExhaustionHandler : MonoBehaviour
     }
 
     private static void GameOver() {
-        Debug.Log("GameOver!");
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single); 
     }
 
     private static bool IsGameOver() {

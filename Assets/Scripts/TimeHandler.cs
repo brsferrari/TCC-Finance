@@ -69,6 +69,10 @@ namespace DPUtils.Systems.DateTime
             is_recovering = false;
         }
 
+        public bool IsOver() {
+            return dayInMonth == 30 && hour == 23 && minutes == 50;
+        }
+
     }
 
     [System.Serializable]

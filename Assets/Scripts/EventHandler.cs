@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using DPUtils.Systems.DateTime;
 
@@ -14,7 +15,8 @@ public class EventHandler : MonoBehaviour
     public GameObject WorkScreen;
     public GameObject ShopScreen;
     public GameObject TimeAdvanceUI;
-    public GameObject TimeHandler;
+    public TimeHandler TimeHandler;
+    public CurrencyHandler CurrencyHandler;
     public GameObject GetOutBedButton;
 
     // Detecção do Mouse
@@ -53,6 +55,14 @@ public class EventHandler : MonoBehaviour
                 if (hit.transform.tag == "pc") {
                     StartComputer();
                 }
+            }
+        }
+
+        if(TimeHandler.IsOver()) {
+            if (CurrencyHandler.GetDoletasValue() < 2500f) {
+                SceneManager.LoadScene("GameOver", LoadSceneMode.Single); 
+            } else {
+                SceneManager.LoadScene("YouWin", LoadSceneMode.Single); 
             }
         }
     }
@@ -125,6 +135,9 @@ public class EventHandler : MonoBehaviour
         ShopScreen.SetActive(false);
     }
 
+
+
+    //
     public void SetActiveBool(GameObject gamingObject) {
         gamingObject.SetActive(!gamingObject.activeSelf);
     }

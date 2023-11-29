@@ -9,6 +9,8 @@ public class UIHandler : MonoBehaviour
     public GameObject Callendar;
     public GameObject UI;
     public GameObject Moveis;
+    public GameObject randomEvent;
+    public EventHandler eventHandler;
 
     [Header("Date & Time UI Settings")]
     public TextMeshProUGUI Date;
@@ -76,7 +78,11 @@ public class UIHandler : MonoBehaviour
                 }
                 if (EhPrimo(randomInt)) {
                     days_without_re = 0;
-                    Debug.Log("RANDOM EVENT!");
+                    if (TimeHandler.is_recovering == true) {
+                        eventHandler.CloseBed();
+                    }
+                    randomEvent.SetActive(true);
+                    RandomEvent();
                 }
             }
         }
@@ -128,5 +134,9 @@ public class UIHandler : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void RandomEvent() {
+        CurrencyHandler.DeacreseCurrency(CurrencyHandler.GetDoletasValue()*30/100);
     }
 }
