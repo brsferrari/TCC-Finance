@@ -32,12 +32,5 @@ public class CurrencyHandler : MonoBehaviour
         doletas = doletas - ValueToDecrease;
         GetDoletas();
         OnDoletasChanged?.Invoke(doletas_text);
-        if (doletas < 0f) {
-            GameOver();
-        };
-    }
-
-    public static void GameOver() {
-        Debug.Log("GameOver!");
     }
 }
