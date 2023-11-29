@@ -57,12 +57,13 @@ public class EventHandler : MonoBehaviour
                 }
             }
         }
-
-        if(TimeHandler.IsOver()) {
-            if (CurrencyHandler.GetDoletasValue() < 2500f) {
-                SceneManager.LoadScene("GameOver", LoadSceneMode.Single); 
-            } else {
-                SceneManager.LoadScene("YouWin", LoadSceneMode.Single); 
+        if(TimeHandler) {
+            if(TimeHandler.IsOver()) {
+                if (CurrencyHandler.GetDoletasValue() < 2500f) {
+                    SceneManager.LoadScene("GameOver", LoadSceneMode.Single); 
+                } else {
+                    SceneManager.LoadScene("YouWin", LoadSceneMode.Single); 
+                }
             }
         }
     }
