@@ -57,15 +57,6 @@ public class EventHandler : MonoBehaviour
                 }
             }
         }
-        if(TimeHandler) {
-            if(TimeHandler.IsOver()) {
-                if (CurrencyHandler.GetDoletasValue() < 2500f) {
-                    SceneManager.LoadScene("GameOver", LoadSceneMode.Single); 
-                } else {
-                    SceneManager.LoadScene("YouWin", LoadSceneMode.Single); 
-                }
-            }
-        }
     }
 
 // ####################################### //
@@ -98,7 +89,7 @@ public class EventHandler : MonoBehaviour
         imageComponent.color = new Color(0, 0, 0, 0);
 
         // Variables Control
-        timeHandler.TimeBetweenTicks = 2.0f;
+        timeHandler.TimeBetweenTicks = 1.0f;
         timeHandler.OutBed();
     }
 

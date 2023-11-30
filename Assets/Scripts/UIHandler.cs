@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DPUtils.Systems.DateTime;
+using UnityEngine.SceneManagement;
 
 public class UIHandler : MonoBehaviour
 {
@@ -28,9 +29,36 @@ public class UIHandler : MonoBehaviour
 
     private void Start() 
     {
+        days_without_re = 1;
+        
+        // Setting back the exhaustion bar
+        RectTransform uiExBarRect = UIExBar.GetComponent<RectTransform>();
+        RectTransform pcExBarRect = PCExBar.GetComponent<RectTransform>();
+
+        // Get the current anchorMax values
+        Vector2 uiExBarAnchorMax = uiExBarRect.anchorMax;
+        Vector2 pcExBarAnchorMax = pcExBarRect.anchorMax;
+
+        // Change only the x-coordinate
+        uiExBarAnchorMax.x = 1.0f;
+        pcExBarAnchorMax.x = 1.0f;
+
+        // Set the modified anchorMax values back to the RectTransforms
+        uiExBarRect.anchorMax = uiExBarAnchorMax;
+        pcExBarRect.anchorMax = pcExBarAnchorMax;
+
+
         TimeHandler.OnDateTimeChanged += UpdateDateTime;
         CurrencyHandler.OnDoletasChanged += UpdateCurrencyText;
         ExhaustionHandler.OnExhaustionChanged += UpdateExhaustionFill;
+    }
+
+    void OnDestroy()
+    {
+        // Remova as inscrições dos eventos para evitar MissingReferenceException
+        TimeHandler.OnDateTimeChanged -= UpdateDateTime;
+        CurrencyHandler.OnDoletasChanged -= UpdateCurrencyText;
+        ExhaustionHandler.OnExhaustionChanged -= UpdateExhaustionFill;
     }
     
     private void UpdateDateTime(DateTime dateTime)
@@ -84,6 +112,14 @@ public class UIHandler : MonoBehaviour
                     randomEvent.SetActive(true);
                     RandomEvent();
                 }
+            }
+        }
+
+        if(dateTime.IsOver()) {
+            if (CurrencyHandler.GetDoletasValue() < 2500.0000f) {
+                SceneManager.LoadScene("GameOver"); 
+            } else {
+                SceneManager.LoadScene("YouWin"); 
             }
         }
     }

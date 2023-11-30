@@ -25,7 +25,7 @@ namespace DPUtils.Systems.DateTime
         // VERY IMPORTANT FOR GAME DESIGN
         [Header("Tick Settings")]
         public int TickMinutesIncreased = 10;
-        public float TimeBetweenTicks  = 2;
+        public float TimeBetweenTicks  = 1;
         private float currentTimeBetweenTicks = 0;
 
         public static UnityAction<DateTime> OnDateTimeChanged;
@@ -40,6 +40,7 @@ namespace DPUtils.Systems.DateTime
 
         void Start()
         {
+            total_days = 1;
             OnDateTimeChanged?.Invoke(DateTime);
         }
 
@@ -68,11 +69,6 @@ namespace DPUtils.Systems.DateTime
         public void OutBed() {
             is_recovering = false;
         }
-
-        public bool IsOver() {
-            return dayInMonth == 30 && hour == 23 && minutes == 50;
-        }
-
     }
 
     [System.Serializable]
@@ -141,6 +137,10 @@ namespace DPUtils.Systems.DateTime
 
         public bool IsNewDay() {
             return hour == 6 && minutes == 0;
+        }
+
+        public bool IsOver() {
+            return end;
         }
         #endregion
     }

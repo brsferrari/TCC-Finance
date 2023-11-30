@@ -13,6 +13,11 @@ public class CurrencyHandler : MonoBehaviour
     //Eventos
     public static event System.Action<string> OnDoletasChanged;
 
+    void Start() {
+        doletas = 00.0000f;
+        IncreaseByClick = 00.0100f;
+    }
+
     // Métodos
     public static void GetDoletas() {
         doletas_text = ("R$ " + doletas.ToString("0.0000"));

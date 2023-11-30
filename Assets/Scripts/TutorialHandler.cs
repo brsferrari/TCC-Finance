@@ -92,11 +92,11 @@ public class TutorialHandler : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("MainGame", LoadSceneMode.Single); 
+        SceneManager.LoadScene("MainGame"); 
     }
 
     public void Tutorial() {
-        SceneManager.LoadScene("Tutorial", LoadSceneMode.Single); 
+        SceneManager.LoadScene("Tutorial"); 
     }
 
 }

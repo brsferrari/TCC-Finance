@@ -4,14 +4,15 @@ using UnityEngine.SceneManagement;
 public class MenuHandler : MonoBehaviour
 {
     public void StartGame() {
-        SceneManager.LoadScene("MainGame", LoadSceneMode.Single); 
+        SceneManager.LoadScene("MainGame"); 
     }
 
     public void StartMenu() {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single); 
+        Debug.Log("CLICKED!");
+        SceneManager.LoadScene("MainMenu"); 
     }
 
     public void Tutorial() {
-        SceneManager.LoadScene("Tutorial", LoadSceneMode.Single); 
+        SceneManager.LoadScene("Tutorial"); 
     }
 }
